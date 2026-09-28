@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+ <title>Dynamic Student Chart</title> 
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+ <style> 
+ body { 
+ font-family: Arial; 
+ text-align: center; 
+ margin: 30px; 
+ } 
+ h1 { 
+ color: red; 
+ } 
+ button { 
+ padding: 10px 20px; 
+ font-size: 16px; 
+ cursor: pointer; 
+ } 
+ #chartBox { 
+ width: 80%; 
+ max-width: 700px; 
+ margin: 30px auto; 
+ } 
+ </style> 
+</head> 
+<body> 
+ <h1>Student Marks Chart</h1> 
+ <button onclick="showChart()">Show Chart</button> 
+ <div id="chartBox"> 
+ <canvas id="marksChart"></canvas> 
+ </div>
+ <script> 
+ function showChart() { 
+ const students = [ 
+ "Vishwa", 
+ "Rahul", 
+ " Krupa ", 
+ "Manthan", 
+ "Neha" 
+ ]; 
+ const marks = [ 
+ 85, 
+ 78, 
+ 92, 
+ 75, 
+ 88 
+ ]; 
+ new Chart(document.getElementById("marksChart"), { 
+ type: "bar", 
+ data: { 
+ labels: students, 
+ datasets: [{ 
+ label: "Student Marks", 
+ data: marks 
+ }] 
+ }, 
+ options: { 
+ responsive: true, 
+ scales: { 
+ y: { 
+ beginAtZero: true, 
+ max: 100 
+ } 
+ } 
+ } 
+ }); 
+ } 
+ </script> 
+</body>
+</html>
